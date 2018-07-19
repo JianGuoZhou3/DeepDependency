@@ -15,7 +15,7 @@ This site is a source code repository for in silico RNAi and deep learning for p
 * Pandas (>= 0.23.1): https://pandas.pydata.org/
 * Networkx (>= 2.1) : https://networkx.github.io/
 
->Required modules for DNN.
+>Required modules for Deep learning.
 
 * Scikit-learn (>= 0.19.1): http://scikit-learn.org/stable/index.html
 * Theano (>= 1.0.2): http://deeplearning.net/software/theano/
