@@ -1,5 +1,5 @@
 # Prediction of cancer dependencies by deep learning
-This site is a source code repository for in silico RNAi and deep learning for prediction of cancer vulnerabilities from transcriptome data.
+This site is a source code repository for *in silico* RNAi and deep learning for prediction of cancer vulnerabilities from transcriptome data.
 
 ## Table of Contents
 * [Requirements](#requirements)
@@ -21,9 +21,9 @@ This site is a source code repository for in silico RNAi and deep learning for p
 * Theano (>= 0.9.0): http://deeplearning.net/software/theano/
    
 ## <a name="insilico">In silico RNAi</a>
-To run in silico RNAi, a network file and basal gene expression profile are required.
+To run *in silico* RNAi, a network file and basal gene expression profile are required.
 All data used in this study are available at the links below.
-You can also use your own basal expression profiles to run in silico RNAi.
+You can also use your own basal expression profiles to run *in silico* RNAi.
 
 #### Download data
 
@@ -33,7 +33,7 @@ You can also use your own basal expression profiles to run in silico RNAi.
   * Click here to download ***[dependency screening data](https://github.com/neellab/bfg/blob/gh-pages/data/shrna/breast_zgarp.txt.zip?raw=true)***
 
 
-#### Run in silico RNAi
+#### Run *in silico* RNAi
 
 >Bayesian Example
 
@@ -73,12 +73,12 @@ You can also use your own basal expression profiles to run in silico RNAi.
   ./run.sh
   ```
 
-In silico RNAi output ```perturbed_result.txt``` for the example are available in ```output``` directory.
+*In silico* RNAi output ```perturbed_result.txt``` for the example are available in ```output``` directory.
       
 ## <a name="dnnmodel">Deep learning model</a>
 
 #### Create model input
-To build a model, the output of in silico RNAi should be matched with experimental dependency data.
+To build a model, the output of *in silico* RNAi should be matched with experimental dependency data.
 The whole dependency dataset is available at the link above.
 
 The dataset is divided into training data (infile.tsv) and test data (testset.tsv). Then, the training dataset is shuffled and split into five datasets.
@@ -132,7 +132,7 @@ Hyperparameters search space can be modified in ```SdA.py``` file.
 All models are saved in ```./out``` directory. If you want to see the log file and error of each model, please check ```./log``` and ```./err``` directory.
 
 #### <a name="predictionoutcome">Prediction</a>
-In silico RNAi output for the sample data is subjected to prediction.
+*In silico* RNAi output for the sample data is subjected to prediction.
 Select the best performing model.
 
   ```
