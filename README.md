@@ -3,7 +3,7 @@ This site is a source code repository for *in silico* RNAi and deep learning for
 
 ## Table of Contents
 * [Requirements](#requirements)
-* [In silico RNAi](#insilico)
+* [*In silico* RNAi](#insilico)
 * [Deep learning model](#dnnmodel)
    
 ## <a name="requirements">Requirements</a>
@@ -20,7 +20,7 @@ This site is a source code repository for *in silico* RNAi and deep learning for
 * Scikit-learn (>= 0.19.1): http://scikit-learn.org/stable/index.html
 * Theano (>= 0.9.0): http://deeplearning.net/software/theano/
    
-## <a name="insilico">In silico RNAi</a>
+## <a name="insilico">*In silico* RNAi</a>
 To run *in silico* RNAi, a network file and basal gene expression profile are required.
 All data used in this study are available at the links below.
 You can also use your own basal expression profiles to run *in silico* RNAi.
