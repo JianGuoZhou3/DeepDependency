@@ -18,12 +18,12 @@ This site is a source code repository for in silico RNAi and deep learning for p
 >Required modules for Deep learning.
 
 * Scikit-learn (>= 0.19.1): http://scikit-learn.org/stable/index.html
-* Theano (>= 1.0.2): http://deeplearning.net/software/theano/
+* Theano (>= 0.9.0): http://deeplearning.net/software/theano/
    
 ## <a name="insilico">In silico RNAi</a>
-
-To run in silico RNAi, network file and basal gene expression profile are required.
-Networks and expression profiles that were used in this study are available at the link below.
+To run in silico RNAi, a network file and basal gene expression profile are required.
+All data used in this study are available at the links below.
+You can also use your own basal expression profiles to run in silico RNAi.
 
 #### Download data
 
@@ -31,8 +31,7 @@ Networks and expression profiles that were used in this study are available at t
 * Download breast cancer cell line expression and dependency data *(Cell. 2016 Jan 14;164(1-2):293-309)*
   * Click here to download ***[cell line RNA-seq data](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE73526)***
   * Click here to download ***[dependency screening data](https://github.com/neellab/bfg/blob/gh-pages/data/shrna/breast_zgarp.txt.zip?raw=true)***
-   
-You can use your basal expression profile to run in silico RNAi.
+
 
 #### Run in silico RNAi
 
@@ -74,39 +73,38 @@ You can use your basal expression profile to run in silico RNAi.
   ./run.sh
   ```
 
-The default option is to save in silico simulated file ```perturbed_result.txt``` in ```output``` directory.
-
-If you want to run simulation with your data, edit ```run.sh``` file and change directory path to "NETWORK", "BASAL", "OUTDIR" and "RESULT" depending on your data.
-
+In silico RNAi output ```perturbed_result.txt``` for the example are available in ```output``` directory.
       
 ## <a name="dnnmodel">Deep learning model</a>
 
 #### Create model input
+To build a model, the output of in silico RNAi should be matched with experimental dependency data.
+The whole dependency dataset is available at the link above.
 
-First, "INPUT" file which in silico simulated transcriptome with properly annotated dependecy class should be prepared.
-Edit ```run_input.sh``` file and change directory path to "INPUT", and "FILE_IDX" name depending on your files.
+The dataset is divided into training data (infile.tsv) and test data (testset.tsv). Then, the training dataset is shuffled and split into five datasets.
+
+>Deep learning model input example
 
   ```
   cd DNN_codes
   cd input
-  ```
->Deep learning model input example
 
-  ```
   # Download sample model input
   wget http://143.248.31.34/~omics/data/DeepDependency/sample/Model_input.txt
 
   # run
   ./run_input.sh
   ```
+  
 #### Model running
 
 >Deep learning model running
+
   ```
   cd ../codes
   ./run.sh
   ```
-
+  
 Edit ```run.sh``` and change "MAX_J" and "TOT_J" to assign the maximum nodes for parallel running and total number of model simulation.
 
 Hyperparameters search space can be modified in ```SdA.py``` file.
@@ -126,22 +124,21 @@ Hyperparameters search space can be modified in ```SdA.py``` file.
   useRelu        = numpy.random.choice([True, False])
   W_distribution = numpy.random.choice(["norm", "uni"])
   insize         = 1000   #(number of features)
+  
+  pretrain_epochs = 100
+  training_epochs = 10000
   ```
 
-All models are saved in ```./out``` directory. If you want to see log file and error of each model, please check ```./log``` and ```./err``` directory.
+All models are saved in ```./out``` directory. If you want to see the log file and error of each model, please check ```./log``` and ```./err``` directory.
 
 #### <a name="predictionoutcome">Prediction</a>
-Select the best performing model. You can use that model for prediction.
-Also, samples for prediction should be simulated.
-
-Edit ```run_predict.sh``` and change directory path to "Sample" and "Model".
-
-Then run.
+In silico RNAi output for the sample data is subjected to prediction.
+Select the best performing model.
 
   ```
   ./run_predict.sh
   ```
 
-The default option is to save prediction files in ```result``` directory.
+The default option is to save prediction outputs in ```result``` directory.
 
 
