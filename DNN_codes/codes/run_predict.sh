@@ -13,7 +13,7 @@ do
   for j in $Model
   do
     Fold=$((Fold+1))
-    python2.7 predict.py $j $i result/$(basename $i)"_fold_0"$Fold 
+    python predict.py $j $i result/$(basename $i)"_fold_0"$Fold 
   done
 done
 

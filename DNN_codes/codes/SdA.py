@@ -13,6 +13,7 @@ from logistic_sgd import LogisticRegression
 from dA import dA
 from mlp import HiddenLayer, _dropout_from_layer, DropoutHiddenLayer
 
+from pyroc import *
 
 
 def tee_stdout(f_out, msg):
