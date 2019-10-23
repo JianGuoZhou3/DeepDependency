@@ -67,8 +67,8 @@ def perturbation_expression(G, exp_dic, perturbed_output):
 	w.close()
 
 def main():
-	if os.path.exists('%s', OUTDIR)==False:
-		os.system('mkdir %s', OUTDIR)
+	if os.path.exists(OUTDIR)==False:
+		os.system("mkdir {}".format(OUTDIR))
 	G=create_network(NETWORK_FILE)
 	exp_dic=expression_data(BASAL_EXPRESSION)
 	perturbation_expression(G, exp_dic, OUTDIR+"/"+RESULT)

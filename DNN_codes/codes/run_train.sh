@@ -9,7 +9,7 @@ mkdir log err
 # iteration of model generation
 for i in $(seq 1 $TOT_J) 
 do
-  OMP_NUM_THREADS=1 THEANO_FLAGS=device=cpu python SdA.py $i 1>log/log$i 2>err/err$i &
+  OMP_NUM_THREADS=1 THEANO_FLAGS=mode=FAST_RUN,device=cpu python SdA.py $i 1>log/log$i 2>err/err$i &
     while (true)
     do
       NUM_J=`jobs -l|wc -l`
@@ -27,3 +27,5 @@ wait $WORK_PID
 END=`date`
 echo "Start: $START"
 echo "END  : $END"
+
+
